@@ -10,6 +10,7 @@ const typeDefs = gql(fs.readFileSync('./src/reviewSchema.graphql', { encoding: '
 
 const server = new ApolloServer({
   schema: buildSubgraphSchema({ typeDefs, resolvers }),
+  introspection: true,
 });
 
 await startStandaloneServer(server, {
